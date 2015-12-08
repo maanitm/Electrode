@@ -11,21 +11,28 @@
 
 @implementation ViewController
 
+SKView *skView;
+SKScene *scene;
+
 - (void)viewDidAppear:(BOOL)animated
 {
   [super viewDidAppear:animated];
-  
+
   // Configure the view.
-  SKView * skView = (SKView *)self.view;
-  skView.showsFPS = YES;
-  skView.showsNodeCount = YES;
+  skView = (SKView *)self.view;
+  skView.showsFPS = NO;
+  skView.showsNodeCount = NO;
   
   // Create and configure the scene.
-  SKScene * scene = [GameLevelScene sceneWithSize:skView.bounds.size];
+  scene = [GameLevelScene sceneWithSize:skView.bounds.size];
   scene.scaleMode = SKSceneScaleModeAspectFill;
   
   // Present the scene.
   [skView presentScene:scene];
+}
+
+- (void)exitScene {
+  exit(0);
 }
 
 - (BOOL)shouldAutorotate

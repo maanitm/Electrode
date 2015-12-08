@@ -11,6 +11,7 @@
 #import "Player.h"
 #import "SKTAudio.h"
 #import "SKTUtils.h"
+#import "ViewController.h"
 
 @interface GameLevelScene()
 
@@ -20,6 +21,14 @@
 @property (nonatomic, strong) TMXLayer *walls;
 @property (nonatomic, strong) TMXLayer *hazards;
 @property (nonatomic, assign) BOOL gameOver;
+@property (nonatomic, strong) SKSpriteNode *exitButton;
+@property (nonatomic, strong) SKSpriteNode *infoButton;
+@property (nonatomic, strong) SKLabelNode *infoButtonText;
+@property (nonatomic, strong) SKLabelNode *exitButtonText;
+@property (nonatomic, strong) SKLabelNode *timerLabel;
+@property (nonatomic, assign) int currentTimer;
+@property (nonatomic, assign) NSTimer *timer;
+
 @end
 
 @implementation GameLevelScene
@@ -30,7 +39,7 @@
     
     self.backgroundColor = [SKColor colorWithRed:.4 green:.4 blue:.95 alpha:1.0];
     
-    self.map = [JSTileMap mapNamed:@"level1.tmx"];
+    self.map = [JSTileMap mapNamed:[NSString stringWithFormat:@"level%@.tmx", [[NSUserDefaults standardUserDefaults] objectForKey:@"Level"]]];
     [self addChild:self.map];
     self.walls = [self.map layerNamed:@"walls"];
     self.hazards = [self.map layerNamed:@"hazards"];
@@ -41,9 +50,62 @@
     self.player.zPosition = 15;
     [self.map addChild:self.player];
     
+    self.timerLabel = [[SKLabelNode alloc] initWithFontNamed:@"Marker Felt"];
+    self.timerLabel.position = CGPointMake(150, self.frame.size.height - 20);
+    self.timerLabel.text = @"0m 0s";
+    self.timerLabel.fontSize = 24;
+    self.timerLabel.fontColor = [UIColor whiteColor];
+    [self addChild:self.timerLabel];
+    
+    self.exitButtonText = [[SKLabelNode alloc] initWithFontNamed:@"Marker Felt"];
+    self.exitButtonText.position = CGPointMake(23, self.frame.size.height - 20);
+    self.exitButtonText.text = @"Quit!";
+    self.exitButtonText.fontSize = 24;
+    self.exitButtonText.fontColor = [UIColor whiteColor];
+    [self addChild:self.exitButtonText];
+    
+    self.exitButton = [[SKSpriteNode alloc] initWithColor:[UIColor redColor] size:CGSizeMake(self.exitButtonText.frame.size.width, self.exitButtonText.frame.size.height)];
+    self.exitButton.position = CGPointMake(self.exitButtonText.position.x, self.exitButtonText.position.y + 10);
+    [self insertChild:self.exitButton atIndex:2];
+    
+    self.infoButtonText = [[SKLabelNode alloc] initWithFontNamed:@"Marker Felt"];
+    self.infoButtonText.position = CGPointMake(23, self.frame.size.height - 20);
+    self.infoButtonText.text = @"Quit!";
+    self.infoButtonText.fontSize = 24;
+    self.infoButtonText.fontColor = [UIColor whiteColor];
+    [self addChild:self.infoButtonText];
+    
+    self.infoButton = [[SKSpriteNode alloc] initWithColor:[UIColor redColor] size:CGSizeMake(self.infoButtonText.frame.size.width, self.infoButton.frame.size.height)];
+    self.infoButton.position = CGPointMake(self.infoButton.position.x, self.infoButton.position.y + 10);
+    [self insertChild:self.infoButton atIndex:2];
+    
     self.userInteractionEnabled = YES;
+    
+    [self startTimer];
   }
   return self;
+}
+
+//You are Electrode and you have to get to the generator to provide electricity for the city! Oh wait, there is one problem ... You have to fight the fire and avoid getting burnt so the power plant has a good efficiency. Good luck!
+
+- (void)timerUpdate {
+  self.currentTimer++;
+  NSString *currentTime = [NSString stringWithFormat:@"%dm %ds", (int)(self.currentTimer / 60), (int)(self.currentTimer % 60)];
+  self.timerLabel.text = currentTime;
+}
+
+- (void)startTimer {
+  self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerUpdate) userInfo:nil repeats:YES];
+}
+- (void)endTimer {
+  [self.timer fire];
+  [self.timer invalidate];
+  self.timer = nil;
+}
+
+- (void)restartTimer {
+  [self endTimer];
+  [self startTimer];
 }
 
 - (void)update:(NSTimeInterval)currentTime
@@ -195,6 +257,8 @@
   } else {
     gameText = @"You have Died!";
   }
+  
+  [self endTimer];
 	
   //1
   SKLabelNode *endGameLabel = [SKLabelNode labelNodeWithFontNamed:@"Marker Felt"];
@@ -216,6 +280,8 @@
 //3
 - (void)replay:(id)sender
 {
+  [self startTimer];
+  
   [[self.view viewWithTag:321] removeFromSuperview];
   [self.view presentScene:[[GameLevelScene alloc] initWithSize:self.size]];
 }
@@ -224,10 +290,16 @@
 {
   for (UITouch *touch in touches) {
     CGPoint touchLocation = [touch locationInNode:self];
-    if (touchLocation.x < self.size.width / 2.0) {
-      self.player.mightAsWellJump = YES;
-    } else {
-      self.player.forwardMarch = YES;
+    if ([self nodeAtPoint:[touch locationInNode:self]] == self.exitButtonText) {
+      [self gameOver:0];
+      [[[ViewController alloc] init] exitScene];
+    }
+    else {
+      if (touchLocation.x < self.size.width / 2.0) {
+        self.player.mightAsWellJump = YES;
+      } else {
+        self.player.forwardMarch = YES;
+      }
     }
   }
 }
