@@ -28,7 +28,7 @@
                                     <action selector="level:" destination="MnV-2L-vOy" eventType="touchUpInside" id="vzL-Lw-ndS"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Tk-qu-n2j">
+                            <button opaque="NO" alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Tk-qu-n2j">
                                 <rect key="frame" x="208" y="20" width="74" height="74"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.7725490196" green="0.81936432979999996" blue="0.22352941179999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -39,7 +39,7 @@
                                     <action selector="level:" destination="MnV-2L-vOy" eventType="touchUpInside" id="Bsy-Ri-pm9"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kq2-PT-sJ4">
+                            <button opaque="NO" alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kq2-PT-sJ4">
                                 <rect key="frame" x="329" y="120" width="74" height="74"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.7725490196" green="0.27450980390000002" blue="0.22352941179999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -50,7 +50,7 @@
                                     <action selector="level:" destination="MnV-2L-vOy" eventType="touchUpInside" id="wcK-mT-caX"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bnx-wa-jGQ">
+                            <button opaque="NO" alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bnx-wa-jGQ">
                                 <rect key="frame" x="100" y="178" width="86" height="86"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.36997072130000003" green="0.53881500829999995" blue="0.78379904840000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -61,7 +61,7 @@
                                     <action selector="level:" destination="MnV-2L-vOy" eventType="touchUpInside" id="obj-Z0-Ljk"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HWd-eX-ZCt">
+                            <button opaque="NO" alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HWd-eX-ZCt">
                                 <rect key="frame" x="483" y="224" width="60" height="60"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.42482230558190059" green="0.7725490196" blue="0.20905728306031013" alpha="1" colorSpace="calibratedRGB"/>
@@ -72,7 +72,7 @@
                                     <action selector="level:" destination="MnV-2L-vOy" eventType="touchUpInside" id="21o-Nc-Yza"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zH0-0D-TYz">
+                            <button opaque="NO" alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zH0-0D-TYz">
                                 <rect key="frame" x="513" y="65" width="105" height="105"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.46437172799999998" green="0.17009663899999999" blue="0.78379904840000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -83,7 +83,7 @@
                                     <action selector="level:" destination="MnV-2L-vOy" eventType="touchUpInside" id="lCZ-0G-RJD"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yZS-mP-PFh">
+                            <button opaque="NO" alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yZS-mP-PFh">
                                 <rect key="frame" x="249" y="236" width="119" height="119"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.44467850130890052" green="0.19281840078303766" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -94,6 +94,13 @@
                                     <action selector="level:" destination="MnV-2L-vOy" eventType="touchUpInside" id="iij-OH-v3M"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Levels 2 - 7 Coming Soon!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rRM-VE-FyS">
+                                <rect key="frame" x="342" y="20" width="201" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
