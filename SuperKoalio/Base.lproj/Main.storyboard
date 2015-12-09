@@ -131,10 +131,33 @@
                     </view>
                     <navigationItem key="navigationItem" id="5SD-Mt-l2h"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <segue destination="5O6-pU-GDt" kind="push" identifier="info" id="vsX-2N-SDs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="btX-cZ-eVz" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="986.5" y="276.5"/>
+            <point key="canvasLocation" x="1182.5" y="276.5"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="UOf-Pp-U8N">
+            <objects>
+                <viewController id="5O6-pU-GDt" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="f0b-PN-gnE"/>
+                        <viewControllerLayoutGuide type="bottom" id="LTM-zP-cuw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vYS-v9-gv6">
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" red="0.0" green="0.55443925100000002" blue="0.59728948520000003" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="KAE-MP-Pcs"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iAi-ZP-eNa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1949.5" y="276.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="aTl-NL-K0I">
