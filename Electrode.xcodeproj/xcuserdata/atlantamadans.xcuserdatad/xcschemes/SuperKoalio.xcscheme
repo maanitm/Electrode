@@ -38,6 +38,16 @@
                ReferencedContainer = "container:Electrode.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "1F982C0F1C1727B400B63012"
+               BuildableName = "ElectrodeUITests.xctest"
+               BlueprintName = "ElectrodeUITests"
+               ReferencedContainer = "container:Electrode.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

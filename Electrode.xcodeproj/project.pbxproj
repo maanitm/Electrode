@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		1F31B04A1C0F61110010D064 /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F31B0491C0F61100010D064 /* StartViewController.m */; };
 		1F31B04C1C0F61E30010D064 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F31B04B1C0F61E30010D064 /* Launch Screen.storyboard */; };
+		1F982C0A1C17228700B63012 /* textSet.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F982C081C17228700B63012 /* textSet.png */; };
+		1F982C0B1C17228700B63012 /* textSet@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F982C091C17228700B63012 /* textSet@2x.png */; };
+		1F982C131C1727B400B63012 /* ElectrodeUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F982C121C1727B400B63012 /* ElectrodeUITests.m */; };
+		1F982C1D1C18B8BB00B63012 /* tileSet.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F982C1B1C18B8BB00B63012 /* tileSet.png */; };
 		1FC636FD1C0F5C54001C1F08 /* electrode_stand.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FC636FB1C0F5C54001C1F08 /* electrode_stand.png */; };
 		1FC636FE1C0F5C54001C1F08 /* electrode_stand@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FC636FC1C0F5C54001C1F08 /* electrode_stand@2x.png */; };
 		F275B671186E0B06009F6E6B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F275B670186E0B06009F6E6B /* Foundation.framework */; };
@@ -44,13 +48,18 @@
 		F275B6E3186E25C1009F6E6B /* SKTAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = F275B6D8186E25C1009F6E6B /* SKTAudio.m */; };
 		F275B6E4186E25C1009F6E6B /* SKTEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = F275B6DA186E25C1009F6E6B /* SKTEffects.m */; };
 		F275B6E5186E25C1009F6E6B /* SKTTimingFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = F275B6DC186E25C1009F6E6B /* SKTTimingFunctions.m */; };
-		F275B6EC186E2731009F6E6B /* tileSet.png in Resources */ = {isa = PBXBuildFile; fileRef = F275B6EA186E2731009F6E6B /* tileSet.png */; };
-		F275B6ED186E2731009F6E6B /* tileSet@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F275B6EB186E2731009F6E6B /* tileSet@2x.png */; };
 		F275B6F4186EC824009F6E6B /* replay.png in Resources */ = {isa = PBXBuildFile; fileRef = F275B6F2186EC824009F6E6B /* replay.png */; };
 		F275B6F5186EC824009F6E6B /* replay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F275B6F3186EC824009F6E6B /* replay@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		1F982C151C1727B400B63012 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F275B665186E0B06009F6E6B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F275B66C186E0B06009F6E6B;
+			remoteInfo = Electrode;
+		};
 		F275B69A186E0B06009F6E6B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F275B665186E0B06009F6E6B /* Project object */;
@@ -64,6 +73,12 @@
 		1F31B0481C0F61100010D064 /* StartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StartViewController.h; path = ../StartViewController.h; sourceTree = "<group>"; };
 		1F31B0491C0F61100010D064 /* StartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StartViewController.m; path = ../StartViewController.m; sourceTree = "<group>"; };
 		1F31B04B1C0F61E30010D064 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		1F982C081C17228700B63012 /* textSet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textSet.png; sourceTree = "<group>"; };
+		1F982C091C17228700B63012 /* textSet@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "textSet@2x.png"; sourceTree = "<group>"; };
+		1F982C101C1727B400B63012 /* ElectrodeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ElectrodeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F982C121C1727B400B63012 /* ElectrodeUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ElectrodeUITests.m; sourceTree = "<group>"; };
+		1F982C141C1727B400B63012 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F982C1B1C18B8BB00B63012 /* tileSet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tileSet.png; sourceTree = "<group>"; };
 		1FC636FB1C0F5C54001C1F08 /* electrode_stand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = electrode_stand.png; path = SuperKoalio/sprites.atlas/electrode_stand.png; sourceTree = "<group>"; };
 		1FC636FC1C0F5C54001C1F08 /* electrode_stand@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "electrode_stand@2x.png"; path = "SuperKoalio/sprites.atlas/electrode_stand@2x.png"; sourceTree = "<group>"; };
 		F275B66D186E0B06009F6E6B /* Electrode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Electrode.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -117,13 +132,18 @@
 		F275B6DB186E25C1009F6E6B /* SKTTimingFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKTTimingFunctions.h; sourceTree = "<group>"; };
 		F275B6DC186E25C1009F6E6B /* SKTTimingFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKTTimingFunctions.m; sourceTree = "<group>"; };
 		F275B6DD186E25C1009F6E6B /* SKTUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKTUtils.h; sourceTree = "<group>"; };
-		F275B6EA186E2731009F6E6B /* tileSet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tileSet.png; sourceTree = "<group>"; };
-		F275B6EB186E2731009F6E6B /* tileSet@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tileSet@2x.png"; sourceTree = "<group>"; };
 		F275B6F2186EC824009F6E6B /* replay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = replay.png; sourceTree = "<group>"; };
 		F275B6F3186EC824009F6E6B /* replay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "replay@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		1F982C0D1C1727B400B63012 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F275B66A186E0B06009F6E6B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -149,6 +169,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F982C111C1727B400B63012 /* ElectrodeUITests */ = {
+			isa = PBXGroup;
+			children = (
+				1F982C121C1727B400B63012 /* ElectrodeUITests.m */,
+				1F982C141C1727B400B63012 /* Info.plist */,
+			);
+			path = ElectrodeUITests;
+			sourceTree = "<group>";
+		};
 		F275B664186E0B06009F6E6B = {
 			isa = PBXGroup;
 			children = (
@@ -156,6 +185,7 @@
 				1FC636FC1C0F5C54001C1F08 /* electrode_stand@2x.png */,
 				F275B678186E0B06009F6E6B /* SuperKoalio */,
 				F275B69C186E0B06009F6E6B /* SuperKoalioTests */,
+				1F982C111C1727B400B63012 /* ElectrodeUITests */,
 				F275B66F186E0B06009F6E6B /* Frameworks */,
 				F275B66E186E0B06009F6E6B /* Products */,
 			);
@@ -166,6 +196,7 @@
 			children = (
 				F275B66D186E0B06009F6E6B /* Electrode.app */,
 				F275B695186E0B06009F6E6B /* Electrode.xctest */,
+				1F982C101C1727B400B63012 /* ElectrodeUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -188,17 +219,17 @@
 			children = (
 				F275B6CC186E25C1009F6E6B /* SKTUtils */,
 				F275B6C9186E2442009F6E6B /* JSTileMap */,
+				F275B681186E0B06009F6E6B /* AppDelegate.h */,
+				F275B682186E0B06009F6E6B /* AppDelegate.m */,
 				F275B6AC186E0B8D009F6E6B /* Player.h */,
 				F275B6AD186E0B8D009F6E6B /* Player.m */,
 				F275B68A186E0B06009F6E6B /* GameLevelScene.h */,
 				F275B68B186E0B06009F6E6B /* GameLevelScene.m */,
-				1F31B0481C0F61100010D064 /* StartViewController.h */,
-				1F31B0491C0F61100010D064 /* StartViewController.m */,
-				F275B681186E0B06009F6E6B /* AppDelegate.h */,
-				F275B682186E0B06009F6E6B /* AppDelegate.m */,
-				F275B684186E0B06009F6E6B /* Main.storyboard */,
 				F275B687186E0B06009F6E6B /* ViewController.h */,
 				F275B688186E0B06009F6E6B /* ViewController.m */,
+				1F31B0481C0F61100010D064 /* StartViewController.h */,
+				1F31B0491C0F61100010D064 /* StartViewController.m */,
+				F275B684186E0B06009F6E6B /* Main.storyboard */,
 				F275B6C2186E21EB009F6E6B /* Resources */,
 				F275B68F186E0B06009F6E6B /* Images.xcassets */,
 				F275B679186E0B06009F6E6B /* Supporting Files */,
@@ -249,8 +280,9 @@
 		F275B6C1186E21D9009F6E6B /* TMX Files */ = {
 			isa = PBXGroup;
 			children = (
-				F275B6EA186E2731009F6E6B /* tileSet.png */,
-				F275B6EB186E2731009F6E6B /* tileSet@2x.png */,
+				1F982C1B1C18B8BB00B63012 /* tileSet.png */,
+				1F982C081C17228700B63012 /* textSet.png */,
+				1F982C091C17228700B63012 /* textSet@2x.png */,
 				F275B6BB186E21CB009F6E6B /* level1.tmx */,
 			);
 			name = "TMX Files";
@@ -306,6 +338,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		1F982C0F1C1727B400B63012 /* ElectrodeUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1F982C171C1727B400B63012 /* Build configuration list for PBXNativeTarget "ElectrodeUITests" */;
+			buildPhases = (
+				1F982C0C1C1727B400B63012 /* Sources */,
+				1F982C0D1C1727B400B63012 /* Frameworks */,
+				1F982C0E1C1727B400B63012 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1F982C161C1727B400B63012 /* PBXTargetDependency */,
+			);
+			name = ElectrodeUITests;
+			productName = ElectrodeUITests;
+			productReference = 1F982C101C1727B400B63012 /* ElectrodeUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		F275B66C186E0B06009F6E6B /* Electrode */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F275B6A6186E0B06009F6E6B /* Build configuration list for PBXNativeTarget "Electrode" */;
@@ -350,6 +400,10 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = Tecshala;
 				TargetAttributes = {
+					1F982C0F1C1727B400B63012 = {
+						CreatedOnToolsVersion = 7.1.1;
+						TestTargetID = F275B66C186E0B06009F6E6B;
+					};
 					F275B694186E0B06009F6E6B = {
 						TestTargetID = F275B66C186E0B06009F6E6B;
 					};
@@ -370,11 +424,19 @@
 			targets = (
 				F275B66C186E0B06009F6E6B /* Electrode */,
 				F275B694186E0B06009F6E6B /* ElectrodeTests */,
+				1F982C0F1C1727B400B63012 /* ElectrodeUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		1F982C0E1C1727B400B63012 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F275B66B186E0B06009F6E6B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -385,15 +447,16 @@
 				1F31B04C1C0F61E30010D064 /* Launch Screen.storyboard in Resources */,
 				F275B6B7186E21AB009F6E6B /* sprites.atlas in Resources */,
 				F275B6BE186E21CB009F6E6B /* level1.mp3 in Resources */,
-				F275B6ED186E2731009F6E6B /* tileSet@2x.png in Resources */,
 				F275B67D186E0B06009F6E6B /* InfoPlist.strings in Resources */,
 				F275B690186E0B06009F6E6B /* Images.xcassets in Resources */,
+				1F982C1D1C18B8BB00B63012 /* tileSet.png in Resources */,
 				F275B6F4186EC824009F6E6B /* replay.png in Resources */,
 				F275B6F5186EC824009F6E6B /* replay@2x.png in Resources */,
 				F275B6BD186E21CB009F6E6B /* jump.wav in Resources */,
 				F275B6BC186E21CB009F6E6B /* hurt.wav in Resources */,
-				F275B6EC186E2731009F6E6B /* tileSet.png in Resources */,
 				F275B686186E0B06009F6E6B /* Main.storyboard in Resources */,
+				1F982C0B1C17228700B63012 /* textSet@2x.png in Resources */,
+				1F982C0A1C17228700B63012 /* textSet.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,6 +471,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		1F982C0C1C1727B400B63012 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F982C131C1727B400B63012 /* ElectrodeUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F275B669186E0B06009F6E6B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -442,6 +513,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		1F982C161C1727B400B63012 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F275B66C186E0B06009F6E6B /* Electrode */;
+			targetProxy = 1F982C151C1727B400B63012 /* PBXContainerItemProxy */;
+		};
 		F275B69B186E0B06009F6E6B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = F275B66C186E0B06009F6E6B /* Electrode */;
@@ -477,6 +553,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		1F982C181C1727B400B63012 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = ElectrodeUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tecshala.ElectrodeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Electrode;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		1F982C191C1727B400B63012 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = ElectrodeUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tecshala.ElectrodeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Electrode;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
 		F275B6A4186E0B06009F6E6B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -624,6 +740,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1F982C171C1727B400B63012 /* Build configuration list for PBXNativeTarget "ElectrodeUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F982C181C1727B400B63012 /* Debug */,
+				1F982C191C1727B400B63012 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		F275B668186E0B06009F6E6B /* Build configuration list for PBXProject "Electrode" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

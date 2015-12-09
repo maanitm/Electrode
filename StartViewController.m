@@ -19,31 +19,31 @@
     // Do any additional setup after loading the view.
     for (UIButton *levelButton in self.levelButtons) {
         [self setRound:levelButton];
-        [self animate:levelButton];
     }
+    [self restart];
 }
 
 BOOL turn = NO;
 
 - (void)restart {
     for (UIButton *levelButton in self.levelButtons) {
-        [self animate:levelButton];
+        [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(animate:) userInfo:levelButton repeats:YES];
     }
 }
 
-- (void)animate:(UIButton *)button {
+- (void)animate:(NSTimer *)timer {
+    UIButton *button = (UIButton *)[timer userInfo];
+    
     [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionAllowUserInteraction animations:^{
         if (turn == NO) {
-            button.transform = CGAffineTransformMakeRotation(M_PI);
+            button.transform = CGAffineTransformMakeScale(1.3, 1.3);
             turn = YES;
         }
         else {
-            button.transform = CGAffineTransformMakeRotation(M_PI*2);
+            button.transform = CGAffineTransformMakeScale(1, 1);
             turn = NO;
         }
-    } completion:^(BOOL finished) {
-        [self restart];
-    }];
+    } completion:nil];
 }
 
 - (void)setRound:(UIButton *)button {
@@ -69,9 +69,13 @@ BOOL turn = NO;
 - (IBAction)level:(id)sender {
     UIButton *levelButton = (UIButton *)sender;
     
-    if ([levelButton.titleLabel.text containsString:@"1"]) {
-        NSLog(@"Worked");
-    }
+    NSString *levelString;
+    levelString = levelButton.titleLabel.text;
+    levelString = [levelString componentsSeparatedByString:@"Level "][1];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:levelString forKey:@"Level"];
+    
+    [self performSegueWithIdentifier:@"start" sender:self];
 }
 
 @end

@@ -11,6 +11,7 @@
 #import "Player.h"
 #import "SKTAudio.h"
 #import "SKTUtils.h"
+#import "ViewController.h"
 
 @interface GameLevelScene()
 
@@ -20,6 +21,15 @@
 @property (nonatomic, strong) TMXLayer *walls;
 @property (nonatomic, strong) TMXLayer *hazards;
 @property (nonatomic, assign) BOOL gameOver;
+@property (nonatomic, strong) SKSpriteNode *exitButton;
+@property (nonatomic, strong) SKLabelNode *infoLabel;
+@property (nonatomic, strong) SKSpriteNode *infoButton;
+@property (nonatomic, strong) SKLabelNode *infoButtonText;
+@property (nonatomic, strong) SKLabelNode *exitButtonText;
+@property (nonatomic, strong) SKLabelNode *timerLabel;
+@property (nonatomic, assign) int currentTimer;
+@property (nonatomic, assign) NSTimer *timer;
+
 @end
 
 @implementation GameLevelScene
@@ -30,20 +40,149 @@
     
     self.backgroundColor = [SKColor colorWithRed:.4 green:.4 blue:.95 alpha:1.0];
     
-    self.map = [JSTileMap mapNamed:@"level1.tmx"];
-    [self addChild:self.map];
+    self.map = [JSTileMap mapNamed:[NSString stringWithFormat:@"level%@.tmx", [[NSUserDefaults standardUserDefaults] objectForKey:@"Level"]]];
+    
     self.walls = [self.map layerNamed:@"walls"];
     self.hazards = [self.map layerNamed:@"hazards"];
     
+    [self addChild:self.map];
+    
     self.player = [[Player alloc] initWithImageNamed:@"electrode_stand"];
     self.player.size = CGSizeMake(15, 37);
-    self.player.position = CGPointMake(100, 50);
+    self.player.position = CGPointMake(100, 250);
     self.player.zPosition = 15;
     [self.map addChild:self.player];
     
+    self.timerLabel = [[SKLabelNode alloc] initWithFontNamed:@"Marker Felt"];
+    self.timerLabel.position = CGPointMake(150, self.frame.size.height - 20);
+    self.timerLabel.text = @"0m 0s";
+    self.timerLabel.fontSize = 24;
+    self.timerLabel.fontColor = [UIColor whiteColor];
+    [self addChild:self.timerLabel];
+    
+    self.exitButtonText = [[SKLabelNode alloc] initWithFontNamed:@"Marker Felt"];
+    self.exitButtonText.position = CGPointMake(23, self.frame.size.height - 20);
+    self.exitButtonText.text = @"Quit!";
+    self.exitButtonText.fontSize = 24;
+    self.exitButtonText.fontColor = [UIColor whiteColor];
+    [self addChild:self.exitButtonText];
+    
+    self.exitButton = [[SKSpriteNode alloc] initWithColor:[UIColor redColor] size:CGSizeMake(self.exitButtonText.frame.size.width, self.exitButtonText.frame.size.height)];
+    self.exitButton.position = CGPointMake(self.exitButtonText.position.x, self.exitButtonText.position.y + 10);
+    [self insertChild:self.exitButton atIndex:2];
+    
+    self.infoButtonText = [[SKLabelNode alloc] initWithFontNamed:@"Marker Felt"];
+    self.infoButtonText.text = @"Info";
+    self.infoButtonText.fontSize = 24;
+    self.infoButtonText.fontColor = [UIColor whiteColor];
+    self.infoButtonText.position = CGPointMake(self.frame.size.width - 23, self.frame.size.height - 20);
+    [self addChild:self.infoButtonText];
+    
+    self.infoButton = [[SKSpriteNode alloc] initWithColor:[UIColor blackColor] size:CGSizeMake(self.infoButtonText.frame.size.width, self.infoButtonText.frame.size.height)];
+    self.infoButton.position = CGPointMake(self.infoButtonText.position.x, self.infoButtonText.position.y + 10);
+    [self insertChild:self.infoButton atIndex:4];
+    
     self.userInteractionEnabled = YES;
+    
+    [self startTimer];
   }
   return self;
+}
+
+BOOL clicked_info = NO;
+
+- (void)initInfoWith:(CGPoint)currentPosition andHide:(BOOL)hide {
+  NSString *infoText = [self getTextByPosition:currentPosition];
+  
+//  self.infoLabel = [[SKLabelNode alloc] initWithFontNamed:@"Marker Felt"];
+//  self.infoLabel.text = infoText;
+//  self.infoLabel.fontSize = 16;
+//  self.infoLabel.fontColor = [UIColor whiteColor];
+//  self.infoLabel.position = CGPointMake((self.frame.size.width - self.infoLabel.frame.size.width), self.frame.size.height - 20);
+//  [self addChild:self.infoLabel];
+  
+  if (hide == NO) {
+    [self createMultilineLabelWithText:infoText fontName:@"Marker Felt" fontSize:16 alpha:1.0 fontColor:[UIColor whiteColor] position:CGPointMake((self.frame.size.width/2 - self.infoLabel.frame.size.width), self.frame.size.height - 100) horizontalAlignmentMode:SKLabelHorizontalAlignmentModeCenter inScene:self];
+  }
+  else {
+  }
+}
+
+-(void) createMultilineLabelWithText:(NSString *)strText fontName:(NSString *)strFontName fontSize:(CGFloat) fontSize alpha:(CGFloat) alpha fontColor:(UIColor *)fontColor position:(CGPoint)position horizontalAlignmentMode:(int)horizontalAlignmentMode inScene:(SKScene *)scene{
+  
+  // parse through the string and put each words into an array.
+  NSCharacterSet *separators = [NSCharacterSet whitespaceAndNewlineCharacterSet];
+  NSArray *words = [strText componentsSeparatedByCharactersInSet:separators];
+  
+  int len = [strText length];
+  int width = fontSize; // specify your own width to fit the device screen
+  
+  // get the number of labelnode we need.
+  int totLines = len/width + 1;
+  int cnt = 0; // used to parse through the words array
+  
+  // here is the for loop that create all the SKLabelNode that we need to
+  // display the string.
+  
+  for (int i=0; i < totLines; i++) {
+    int lenPerLine = 0;
+    NSString *lineStr = @"";
+    
+    while (lenPerLine<width) {
+      if (cnt>[words count]-1) break; // failsafe - avoid overflow error
+      lineStr = [NSString stringWithFormat:@"%@ %@", lineStr, words[cnt]];
+      lenPerLine = [lineStr length];
+      cnt ++;
+    }
+    
+    // creation of the SKLabelNode itself
+    _multiLineLabel = [SKLabelNode labelNodeWithFontNamed:strFontName];
+    _multiLineLabel.text = lineStr;
+    _multiLineLabel.name = @"infoLabel";
+    // name each label node so you can animate it if u wish
+    // the rest of the code should be self-explanatory
+    _multiLineLabel.name = [NSString stringWithFormat:@"line%d",i];
+    _multiLineLabel.horizontalAlignmentMode = horizontalAlignmentMode;
+    _multiLineLabel.fontSize = fontSize;
+    _multiLineLabel.fontColor = fontColor;
+    //_multiLineLabel.position = CGPointMake(size.width/2, size.height/2+100-20*i);
+    _multiLineLabel.position = CGPointMake(position.x, position.y-(fontSize + 5)*i);
+    [self addChild:_multiLineLabel];
+  }
+}
+
+SKLabelNode *_multiLineLabel;
+
+- (NSString *)getTextByPosition:(CGPoint)currentPosition {
+  NSString *infoText;
+  
+  if (currentPosition.x <= 750) {
+    infoText = @"Welcome to the coal power plant! You have to get to the generator and provide electricity for the city. First, you have to get through the furnace where the coal is burnt and the water turns int steam.";
+  }
+  
+  return infoText;
+}
+
+//You are Electrode and you have to get to the generator to provide electricity for the city! Oh wait, there is one problem ... You have to fight the fire and avoid getting burnt so the power plant has a good efficiency. Good luck!
+
+- (void)timerUpdate {
+  self.currentTimer++;
+  NSString *currentTime = [NSString stringWithFormat:@"%dm %ds", (int)(self.currentTimer / 60), (int)(self.currentTimer % 60)];
+  self.timerLabel.text = currentTime;
+}
+
+- (void)startTimer {
+  self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerUpdate) userInfo:nil repeats:YES];
+}
+- (void)endTimer {
+  [self.timer fire];
+  [self.timer invalidate];
+  self.timer = nil;
+}
+
+- (void)restartTimer {
+  [self endTimer];
+  [self startTimer];
 }
 
 - (void)update:(NSTimeInterval)currentTime
@@ -195,6 +334,8 @@
   } else {
     gameText = @"You have Died!";
   }
+  
+  [self endTimer];
 	
   //1
   SKLabelNode *endGameLabel = [SKLabelNode labelNodeWithFontNamed:@"Marker Felt"];
@@ -216,6 +357,8 @@
 //3
 - (void)replay:(id)sender
 {
+  [self startTimer];
+  
   [[self.view viewWithTag:321] removeFromSuperview];
   [self.view presentScene:[[GameLevelScene alloc] initWithSize:self.size]];
 }
@@ -224,10 +367,28 @@
 {
   for (UITouch *touch in touches) {
     CGPoint touchLocation = [touch locationInNode:self];
-    if (touchLocation.x < self.size.width / 2.0) {
-      self.player.mightAsWellJump = YES;
-    } else {
-      self.player.forwardMarch = YES;
+    if ([self nodeAtPoint:[touch locationInNode:self]] == self.exitButtonText) {
+      [self gameOver:0];
+      [[[ViewController alloc] init] exitScene];
+    }
+    else if ([self nodeAtPoint:[touch locationInNode:self]] == self.infoButtonText) {
+      NSLog(@"%@", NSStringFromCGPoint(self.player.position));
+      
+      if (clicked_info == NO) {
+        [self initInfoWith:self.player.position andHide:NO];
+        clicked_info = YES;
+      }
+      else {
+        [self initInfoWith:self.player.position andHide:YES];
+        clicked_info = NO;
+      }
+    }
+    else {
+      if (touchLocation.x < self.size.width / 2.0) {
+        self.player.mightAsWellJump = YES;
+      } else {
+        self.player.forwardMarch = YES;
+      }
     }
   }
 }
