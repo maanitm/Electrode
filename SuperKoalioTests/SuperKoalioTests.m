@@ -1,6 +1,6 @@
 //
-//  SuperKoalioTests.m
-//  SuperKoalioTests
+//  ElectrodeTests.m
+//  ElectrodeTests
 //
 //  Created by Jake Gundersen on 12/27/13.
 //  Copyright (c) 2013 Razeware, LLC. All rights reserved.
@@ -8,11 +8,11 @@
 
 #import <XCTest/XCTest.h>
 
-@interface SuperKoalioTests : XCTestCase
+@interface ElectrodeTests : XCTestCase
 
 @end
 
-@implementation SuperKoalioTests
+@implementation ElectrodeTests
 
 - (void)setUp
 {

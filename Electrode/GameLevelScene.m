@@ -1,6 +1,6 @@
 //
 //  GameLevelScene.m
-//  SuperKoalio
+//  Electrode
 //
 //  Created by Jake Gundersen on 12/27/13.
 //  Copyright (c) 2013 Razeware, LLC. All rights reserved.
@@ -54,7 +54,7 @@
     [self.map addChild:self.player];
     
     self.timerLabel = [[SKLabelNode alloc] initWithFontNamed:@"Marker Felt"];
-    self.timerLabel.position = CGPointMake(150, self.frame.size.height - 20);
+    self.timerLabel.position = CGPointMake(self.frame.size.width/2, self.frame.size.height - 20);
     self.timerLabel.text = @"0m 0s";
     self.timerLabel.fontSize = 24;
     self.timerLabel.fontColor = [UIColor whiteColor];
@@ -72,10 +72,10 @@
     [self insertChild:self.exitButton atIndex:2];
     
     self.infoButtonText = [[SKLabelNode alloc] initWithFontNamed:@"Marker Felt"];
-    self.infoButtonText.text = @"Info";
+    self.infoButtonText.text = @"Restart";
     self.infoButtonText.fontSize = 24;
     self.infoButtonText.fontColor = [UIColor whiteColor];
-    self.infoButtonText.position = CGPointMake(self.frame.size.width - 23, self.frame.size.height - 20);
+    self.infoButtonText.position = CGPointMake(self.frame.size.width - 40, self.frame.size.height - 20);
     [self addChild:self.infoButtonText];
     
     self.infoButton = [[SKSpriteNode alloc] initWithColor:[UIColor blackColor] size:CGSizeMake(self.infoButtonText.frame.size.width, self.infoButtonText.frame.size.height)];
@@ -89,9 +89,7 @@
   return self;
 }
 
-BOOL clicked_info = NO;
-
-- (void)initInfoWith:(CGPoint)currentPosition andHide:(BOOL)hide {
+- (void)initInfoWith:(CGPoint)currentPosition {
   NSString *infoText = [self getTextByPosition:currentPosition];
   
 //  self.infoLabel = [[SKLabelNode alloc] initWithFontNamed:@"Marker Felt"];
@@ -101,12 +99,10 @@ BOOL clicked_info = NO;
 //  self.infoLabel.position = CGPointMake((self.frame.size.width - self.infoLabel.frame.size.width), self.frame.size.height - 20);
 //  [self addChild:self.infoLabel];
   
-  if (hide == NO) {
-    [self createMultilineLabelWithText:infoText fontName:@"Marker Felt" fontSize:16 alpha:1.0 fontColor:[UIColor whiteColor] position:CGPointMake((self.frame.size.width/2 - self.infoLabel.frame.size.width), self.frame.size.height - 100) horizontalAlignmentMode:SKLabelHorizontalAlignmentModeCenter inScene:self];
-  }
-  else {
-  }
+  [self createMultilineLabelWithText:infoText fontName:@"Marker Felt" fontSize:16 alpha:1.0 fontColor:[UIColor whiteColor] position:CGPointMake((self.frame.size.width/2 - self.infoLabel.frame.size.width), 60) horizontalAlignmentMode:SKLabelHorizontalAlignmentModeCenter inScene:self];
 }
+
+BOOL second = NO;
 
 -(void) createMultilineLabelWithText:(NSString *)strText fontName:(NSString *)strFontName fontSize:(CGFloat) fontSize alpha:(CGFloat) alpha fontColor:(UIColor *)fontColor position:(CGPoint)position horizontalAlignmentMode:(int)horizontalAlignmentMode inScene:(SKScene *)scene{
   
@@ -115,7 +111,7 @@ BOOL clicked_info = NO;
   NSArray *words = [strText componentsSeparatedByCharactersInSet:separators];
   
   int len = [strText length];
-  int width = fontSize; // specify your own width to fit the device screen
+  int width = 90; // specify your own width to fit the device screen
   
   // get the number of labelnode we need.
   int totLines = len/width + 1;
@@ -123,6 +119,10 @@ BOOL clicked_info = NO;
   
   // here is the for loop that create all the SKLabelNode that we need to
   // display the string.
+  
+  if (second == YES) {
+    [self removeChildrenInArray:@[_multiLineLabel]];
+  }
   
   for (int i=0; i < totLines; i++) {
     int lenPerLine = 0;
@@ -149,6 +149,8 @@ BOOL clicked_info = NO;
     _multiLineLabel.position = CGPointMake(position.x, position.y-(fontSize + 5)*i);
     [self addChild:_multiLineLabel];
   }
+  
+  second = YES;
 }
 
 SKLabelNode *_multiLineLabel;
@@ -156,14 +158,21 @@ SKLabelNode *_multiLineLabel;
 - (NSString *)getTextByPosition:(CGPoint)currentPosition {
   NSString *infoText;
   
-  if (currentPosition.x <= 750) {
-    infoText = @"Welcome to the coal power plant! You have to get to the generator and provide electricity for the city. First, you have to get through the furnace where the coal is burnt and the water turns int steam.";
+  if (currentPosition.x <= 630) {
+    infoText = @"Welcome to the coal power plant! You have to generate electricity for the city.";
+  }
+  else if (currentPosition.x >= 631 && currentPosition.x <= 870) {
+    infoText = @"You are now at the turbine! Jump through it and turn it to generate electricity.";
+  }
+  else if (currentPosition.x >= 871) {
+    infoText = @"Good Job! You got through the generator and are taking electricity to the city!";
+  }
+  else {
+    infoText = @"Good job!";
   }
   
   return infoText;
 }
-
-//You are Electrode and you have to get to the generator to provide electricity for the city! Oh wait, there is one problem ... You have to fight the fire and avoid getting burnt so the power plant has a good efficiency. Good luck!
 
 - (void)timerUpdate {
   self.currentTimer++;
@@ -189,6 +198,9 @@ SKLabelNode *_multiLineLabel;
 {
   if (self.gameOver) return;
 
+  [_multiLineLabel removeFromParent];
+  [self initInfoWith:self.player.position];
+  
   NSTimeInterval delta = currentTime - self.previousUpdateTime;
 
   if (delta > 0.02) {
@@ -318,7 +330,7 @@ SKLabelNode *_multiLineLabel;
 }
 
 -(void)checkForWin {
-  if (self.player.position.x > 3130.0) {
+  if (self.player.position.x > 1450.0) {
     [self gameOver:1];
   }
 }
@@ -332,11 +344,11 @@ SKLabelNode *_multiLineLabel;
   if (won) {
     gameText = @"You Won!";
   } else {
-    gameText = @"You have Died!";
+    gameText = @"You have been burnt!";
   }
   
   [self endTimer];
-	
+  
   //1
   SKLabelNode *endGameLabel = [SKLabelNode labelNodeWithFontNamed:@"Marker Felt"];
   endGameLabel.text = gameText;
@@ -344,22 +356,14 @@ SKLabelNode *_multiLineLabel;
   endGameLabel.position = CGPointMake(self.size.width / 2.0, self.size.height / 1.7);
   [self addChild:endGameLabel];
   
-  //2
-  UIButton *replay = [UIButton buttonWithType:UIButtonTypeCustom];
-  replay.tag = 321;
-  UIImage *replayImage = [UIImage imageNamed:@"replay"];
-  [replay setImage:replayImage forState:UIControlStateNormal];
-  [replay addTarget:self action:@selector(replay:) forControlEvents:UIControlEventTouchUpInside];
-  replay.frame = CGRectMake(self.size.width / 2.0 - replayImage.size.width / 2.0, self.size.height / 2.0 - replayImage.size.height / 2.0, replayImage.size.width, replayImage.size.height);
-  [self.view addSubview:replay];
+  [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(replay) userInfo:nil repeats:NO];
 }
 
 //3
-- (void)replay:(id)sender
+- (void)replay
 {
   [self startTimer];
-  
-  [[self.view viewWithTag:321] removeFromSuperview];
+
   [self.view presentScene:[[GameLevelScene alloc] initWithSize:self.size]];
 }
 
@@ -372,16 +376,8 @@ SKLabelNode *_multiLineLabel;
       [[[ViewController alloc] init] exitScene];
     }
     else if ([self nodeAtPoint:[touch locationInNode:self]] == self.infoButtonText) {
-      NSLog(@"%@", NSStringFromCGPoint(self.player.position));
-      
-      if (clicked_info == NO) {
-        [self initInfoWith:self.player.position andHide:NO];
-        clicked_info = YES;
-      }
-      else {
-        [self initInfoWith:self.player.position andHide:YES];
-        clicked_info = NO;
-      }
+      [self endTimer];
+      [self replay];
     }
     else {
       if (touchLocation.x < self.size.width / 2.0) {

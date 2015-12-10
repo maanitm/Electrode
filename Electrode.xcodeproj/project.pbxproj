@@ -13,6 +13,7 @@
 		1F982C0B1C17228700B63012 /* textSet@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F982C091C17228700B63012 /* textSet@2x.png */; };
 		1F982C131C1727B400B63012 /* ElectrodeUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F982C121C1727B400B63012 /* ElectrodeUITests.m */; };
 		1F982C1D1C18B8BB00B63012 /* tileSet.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F982C1B1C18B8BB00B63012 /* tileSet.png */; };
+		1F982C201C18EF1F00B63012 /* tutorial.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F982C1F1C18EF1F00B63012 /* tutorial.png */; };
 		1FC636FD1C0F5C54001C1F08 /* electrode_stand.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FC636FB1C0F5C54001C1F08 /* electrode_stand.png */; };
 		1FC636FE1C0F5C54001C1F08 /* electrode_stand@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FC636FC1C0F5C54001C1F08 /* electrode_stand@2x.png */; };
 		F275B671186E0B06009F6E6B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F275B670186E0B06009F6E6B /* Foundation.framework */; };
@@ -79,8 +80,9 @@
 		1F982C121C1727B400B63012 /* ElectrodeUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ElectrodeUITests.m; sourceTree = "<group>"; };
 		1F982C141C1727B400B63012 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F982C1B1C18B8BB00B63012 /* tileSet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tileSet.png; sourceTree = "<group>"; };
-		1FC636FB1C0F5C54001C1F08 /* electrode_stand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = electrode_stand.png; path = SuperKoalio/sprites.atlas/electrode_stand.png; sourceTree = "<group>"; };
-		1FC636FC1C0F5C54001C1F08 /* electrode_stand@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "electrode_stand@2x.png"; path = "SuperKoalio/sprites.atlas/electrode_stand@2x.png"; sourceTree = "<group>"; };
+		1F982C1F1C18EF1F00B63012 /* tutorial.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tutorial.png; sourceTree = "<group>"; };
+		1FC636FB1C0F5C54001C1F08 /* electrode_stand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = electrode_stand.png; path = Electrode/sprites.atlas/electrode_stand.png; sourceTree = "<group>"; };
+		1FC636FC1C0F5C54001C1F08 /* electrode_stand@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "electrode_stand@2x.png"; path = "Electrode/sprites.atlas/electrode_stand@2x.png"; sourceTree = "<group>"; };
 		F275B66D186E0B06009F6E6B /* Electrode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Electrode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F275B670186E0B06009F6E6B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F275B672186E0B06009F6E6B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -183,7 +185,7 @@
 			children = (
 				1FC636FB1C0F5C54001C1F08 /* electrode_stand.png */,
 				1FC636FC1C0F5C54001C1F08 /* electrode_stand@2x.png */,
-				F275B678186E0B06009F6E6B /* SuperKoalio */,
+				F275B678186E0B06009F6E6B /* Electrode */,
 				F275B69C186E0B06009F6E6B /* SuperKoalioTests */,
 				1F982C111C1727B400B63012 /* ElectrodeUITests */,
 				F275B66F186E0B06009F6E6B /* Frameworks */,
@@ -214,7 +216,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		F275B678186E0B06009F6E6B /* SuperKoalio */ = {
+		F275B678186E0B06009F6E6B /* Electrode */ = {
 			isa = PBXGroup;
 			children = (
 				F275B6CC186E25C1009F6E6B /* SKTUtils */,
@@ -235,7 +237,7 @@
 				F275B679186E0B06009F6E6B /* Supporting Files */,
 				1F31B04B1C0F61E30010D064 /* Launch Screen.storyboard */,
 			);
-			path = SuperKoalio;
+			path = Electrode;
 			sourceTree = "<group>";
 		};
 		F275B679186E0B06009F6E6B /* Supporting Files */ = {
@@ -291,6 +293,7 @@
 		F275B6C2186E21EB009F6E6B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1F982C1F1C18EF1F00B63012 /* tutorial.png */,
 				F275B6F2186EC824009F6E6B /* replay.png */,
 				F275B6F3186EC824009F6E6B /* replay@2x.png */,
 				F275B6C0186E21D1009F6E6B /* Audio */,
@@ -447,6 +450,7 @@
 				1F31B04C1C0F61E30010D064 /* Launch Screen.storyboard in Resources */,
 				F275B6B7186E21AB009F6E6B /* sprites.atlas in Resources */,
 				F275B6BE186E21CB009F6E6B /* level1.mp3 in Resources */,
+				1F982C201C18EF1F00B63012 /* tutorial.png in Resources */,
 				F275B67D186E0B06009F6E6B /* InfoPlist.strings in Resources */,
 				F275B690186E0B06009F6E6B /* Images.xcassets in Resources */,
 				1F982C1D1C18B8BB00B63012 /* tileSet.png in Resources */,
@@ -671,8 +675,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SuperKoalio/Electrode-Prefix.pch";
-				INFOPLIST_FILE = "SuperKoalio/Electrode-Info.plist";
+				GCC_PREFIX_HEADER = "Electrode/Electrode-Prefix.pch";
+				INFOPLIST_FILE = "Electrode/Electrode-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Tecshala.Electrode;
 				PRODUCT_NAME = Electrode;
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
@@ -686,8 +690,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SuperKoalio/Electrode-Prefix.pch";
-				INFOPLIST_FILE = "SuperKoalio/Electrode-Info.plist";
+				GCC_PREFIX_HEADER = "Electrode/Electrode-Prefix.pch";
+				INFOPLIST_FILE = "Electrode/Electrode-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Tecshala.Electrode;
 				PRODUCT_NAME = Electrode;
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
