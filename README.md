@@ -1,2 +1,2 @@
 # Electrode
-ICT Semester 1 2015, Game
+Save electricity. Save the world.
