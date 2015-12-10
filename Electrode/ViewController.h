@@ -1,6 +1,6 @@
 //
 //  ViewController.h
-//  SuperKoalio
+//  Electrode
 //
 
 //  Copyright (c) 2013 Razeware, LLC. All rights reserved.
