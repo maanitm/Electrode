@@ -54,7 +54,7 @@
     [self.map addChild:self.player];
     
     self.timerLabel = [[SKLabelNode alloc] initWithFontNamed:@"Marker Felt"];
-    self.timerLabel.position = CGPointMake(150, self.frame.size.height - 20);
+    self.timerLabel.position = CGPointMake(self.frame.size.width/2, self.frame.size.height - 20);
     self.timerLabel.text = @"0m 0s";
     self.timerLabel.fontSize = 24;
     self.timerLabel.fontColor = [UIColor whiteColor];
@@ -72,10 +72,10 @@
     [self insertChild:self.exitButton atIndex:2];
     
     self.infoButtonText = [[SKLabelNode alloc] initWithFontNamed:@"Marker Felt"];
-    self.infoButtonText.text = @"Info";
+    self.infoButtonText.text = @"Restart";
     self.infoButtonText.fontSize = 24;
     self.infoButtonText.fontColor = [UIColor whiteColor];
-    self.infoButtonText.position = CGPointMake(self.frame.size.width - 23, self.frame.size.height - 20);
+    self.infoButtonText.position = CGPointMake(self.frame.size.width - 40, self.frame.size.height - 20);
     [self addChild:self.infoButtonText];
     
     self.infoButton = [[SKSpriteNode alloc] initWithColor:[UIColor blackColor] size:CGSizeMake(self.infoButtonText.frame.size.width, self.infoButtonText.frame.size.height)];
@@ -164,17 +164,15 @@ SKLabelNode *_multiLineLabel;
   else if (currentPosition.x >= 631 && currentPosition.x <= 870) {
     infoText = @"You are now at the turbine! Jump through it and turn it to generate electricity.";
   }
-  else if (currentPosition.x >= 871 && currentPosition.x <= 1000) {
+  else if (currentPosition.x >= 871) {
     infoText = @"Good Job! You got through the generator and are taking electricity to the city!";
   }
   else {
-    infoText = @"Yay";
+    infoText = @"Good job!";
   }
   
   return infoText;
 }
-
-//You are Electrode and you have to get to the generator to provide electricity for the city! Oh wait, there is one problem ... You have to fight the fire and avoid getting burnt so the power plant has a good efficiency. Good luck!
 
 - (void)timerUpdate {
   self.currentTimer++;
@@ -378,9 +376,8 @@ SKLabelNode *_multiLineLabel;
       [[[ViewController alloc] init] exitScene];
     }
     else if ([self nodeAtPoint:[touch locationInNode:self]] == self.infoButtonText) {
-      NSLog(@"%@", NSStringFromCGPoint(self.player.position));
-      
-      
+      [self endTimer];
+      [self replay];
     }
     else {
       if (touchLocation.x < self.size.width / 2.0) {

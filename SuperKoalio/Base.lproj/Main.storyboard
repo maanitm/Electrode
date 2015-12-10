@@ -120,7 +120,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Ah-F5-Vrx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="373.5" y="276.5"/>
+            <point key="canvasLocation" x="574.5" y="276.5"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="CtS-rA-C9T">
@@ -138,33 +138,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="5SD-Mt-l2h"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                    <connections>
-                        <segue destination="5O6-pU-GDt" kind="push" identifier="info" id="vsX-2N-SDs"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="btX-cZ-eVz" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1182.5" y="276.5"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="UOf-Pp-U8N">
-            <objects>
-                <viewController id="5O6-pU-GDt" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="f0b-PN-gnE"/>
-                        <viewControllerLayoutGuide type="bottom" id="LTM-zP-cuw"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="vYS-v9-gv6">
-                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <animations/>
-                        <color key="backgroundColor" red="0.0" green="0.55443925100000002" blue="0.59728948520000003" alpha="1" colorSpace="calibratedRGB"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="KAE-MP-Pcs"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iAi-ZP-eNa" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1949.5" y="276.5"/>
+            <point key="canvasLocation" x="1306.5" y="276.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="aTl-NL-K0I">
@@ -180,14 +157,54 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="MnV-2L-vOy" kind="relationship" relationship="rootViewController" id="PgZ-xW-cIL"/>
+                        <segue destination="eRC-It-eNs" kind="relationship" relationship="rootViewController" id="wTn-bG-JrI"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="juE-AN-RBp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-518.5" y="263.5"/>
+            <point key="canvasLocation" x="-901.5" y="276.5"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="vR9-HP-0fI">
+            <objects>
+                <viewController id="eRC-It-eNs" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Umb-RK-hoG"/>
+                        <viewControllerLayoutGuide type="bottom" id="Sml-x7-Qvb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jrL-po-5b1">
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tutorial.png" translatesAutoresizingMaskIntoConstraints="NO" id="GDK-U8-jMk">
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                                <animations/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OTl-ql-eIc">
+                                <rect key="frame" x="249" y="337" width="169" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                                <state key="normal" title="CLICK HERE TO START">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="MnV-2L-vOy" kind="push" id="71M-LM-uqM"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="fS6-tr-cuH"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HLQ-YP-Ppt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-187.5" y="276.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="tutorial.png" width="666" height="376"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <nil key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
